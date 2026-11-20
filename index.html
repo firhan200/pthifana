@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT Hifana Global Biochem</title>
+  <meta name="description" content="PT Hifana Global Biochem menyediakan produk biokimia untuk industri: enzim, kultur mikroba, solusi pengolahan air, dan bahan kimia khusus berbasis hayati.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-900: #0b3d2e;
+      --green-700: #12664a;
+      --green-500: #1f9d6c;
+      --green-100: #e3f4ec;
+      --ink: #1b2a24;
+      --muted: #5b6b64;
+      --line: #dfe7e3;
+      --bg: #ffffff;
+      --bg-soft: #f5f9f7;
+      --radius: 14px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--green-500); margin-bottom: 12px;
+    }
+    h1, h2, h3 { line-height: 1.2; color: var(--green-900); }
+    h2 { font-size: clamp(28px, 4vw, 38px); font-weight: 800; margin-bottom: 16px; }
+    h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 640px; }
+    .section-head { margin-bottom: 48px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 15px;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--green-500); color: #fff; }
+    .btn-primary:hover { background: var(--green-700); }
+    .btn-ghost { border: 1.5px solid rgba(255,255,255,.5); color: #fff; }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--green-900); }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--green-500), var(--green-900));
+      display: grid; place-items: center;
+    }
+    .logo small { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 32px; list-style: none; font-weight: 600; font-size: 15px; }
+    .nav-links a { color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--green-700); }
+    .nav-cta { padding: 10px 20px; }
+    .menu-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(31,157,108,.45), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(31,157,108,.25), transparent 40%),
+        var(--green-900);
+      color: #fff;
+      padding: 120px 0 110px;
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
+    .hero h1 { color: #fff; font-size: clamp(36px, 5.5vw, 58px); font-weight: 800; margin-bottom: 20px; }
+    .hero h1 span { color: #7ee2b5; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,.8); max-width: 560px; margin-bottom: 36px; }
+    .hero .eyebrow { color: #7ee2b5; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-art { justify-self: center; width: 100%; max-width: 360px; }
+
+    /* Stats */
+    .stats { padding: 0; margin-top: -48px; position: relative; z-index: 2; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: 0 20px 40px -24px rgba(11,61,46,.25);
+    }
+    .stat { padding: 28px 24px; text-align: center; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-size: 32px; font-weight: 800; color: var(--green-700); }
+    .stat span { font-size: 14px; color: var(--muted); }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 16px; }
+    .values { display: grid; gap: 16px; }
+    .value {
+      display: flex; gap: 16px; padding: 20px;
+      background: var(--bg-soft); border-radius: var(--radius);
+    }
+    .value-icon {
+      flex: none; width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-100); color: var(--green-700);
+      display: grid; place-items: center;
+    }
+    .value p { color: var(--muted); font-size: 15px; }
+
+    /* Products */
+    .products { background: var(--bg-soft); }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .card:hover { border-color: var(--green-500); box-shadow: 0 16px 32px -20px rgba(11,61,46,.35); transform: translateY(-2px); }
+    .card .value-icon { margin-bottom: 18px; }
+    .card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+    .tags li {
+      font-size: 12px; font-weight: 600; color: var(--green-700);
+      background: var(--green-100); padding: 4px 10px; border-radius: 999px;
+    }
+
+    /* Industries */
+    .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .industry {
+      padding: 24px; border: 1px solid var(--line); border-radius: var(--radius);
+      display: flex; align-items: center; gap: 14px; font-weight: 600;
+    }
+    .industry .dot {
+      flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--green-500);
+      box-shadow: 0 0 0 5px var(--green-100);
+    }
+
+    /* CTA / Contact */
+    .contact { background: var(--green-900); color: #fff; }
+    .contact h2 { color: #fff; }
+    .contact .lead { color: rgba(255,255,255,.75); }
+    .contact .eyebrow { color: #7ee2b5; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .contact-list { list-style: none; display: grid; gap: 14px; }
+    .contact-list li {
+      display: flex; gap: 16px; align-items: center;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius); padding: 18px 20px;
+    }
+    .contact-list .value-icon { background: rgba(126,226,181,.15); color: #7ee2b5; }
+    .contact-list small { display: block; font-size: 12px; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .06em; }
+    .contact-list a:hover { color: #7ee2b5; }
+    .contact-list li > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+    .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .map {
+      margin-top: 48px; width: 100%; height: 420px;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #e5ebe8;
+    }
+    .map iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .map-link { margin-top: 16px; }
+
+    footer { background: #072a20; color: rgba(255,255,255,.6); font-size: 14px; padding: 28px 0; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-art { display: none; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .industry-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 760px) {
+      section { padding: 64px 0; }
+      .container { padding: 0 16px; }
+      .menu-toggle { display: block; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none; position: absolute; top: 72px; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 16px 20px; border-top: 1px solid var(--line); }
+      .hero { padding: 80px 0 96px; }
+      .map { margin-top: 32px; height: 380px; }
+      .map-link { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 560px) {
+      .card-grid, .industry-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo" aria-label="Beranda PT Hifana Global Biochem">
+        <span class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </span>
+        <span>Hifana Global Biochem<small>PT HIFANA GLOBAL BIOCHEM</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#industries">Industri</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta">Minta Penawaran</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Solusi Biokimia Industri</span>
+          <h1>Biokimia untuk industri yang <span>lebih bersih</span> dan lebih efisien.</h1>
+          <p>PT Hifana Global Biochem menyediakan enzim, kultur mikroba, dan bahan kimia khusus berbasis hayati bagi industri di seluruh Indonesia dan kawasan Asia Tenggara.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Lihat Produk</a>
+            <a href="#contact" class="btn btn-ghost">Hubungi Tim Penjualan</a>
+          </div>
+        </div>
+        <svg class="hero-art" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+          <circle cx="150" cy="150" r="130" stroke="rgba(126,226,181,.25)" stroke-width="2" stroke-dasharray="4 8"/>
+          <circle cx="150" cy="150" r="90" stroke="rgba(126,226,181,.35)" stroke-width="2"/>
+          <g stroke="#7ee2b5" stroke-width="3">
+            <line x1="150" y1="150" x2="150" y2="60"/>
+            <line x1="150" y1="150" x2="228" y2="195"/>
+            <line x1="150" y1="150" x2="72" y2="195"/>
+          </g>
+          <circle cx="150" cy="150" r="22" fill="#1f9d6c" stroke="#7ee2b5" stroke-width="3"/>
+          <circle cx="150" cy="60" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle cx="228" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle cx="72" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle cx="240" cy="90" r="6" fill="#7ee2b5"/>
+          <circle cx="58" cy="100" r="4" fill="#7ee2b5"/>
+          <circle cx="200" cy="262" r="5" fill="#7ee2b5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Statistik (angka contoh, ganti dengan data sebenarnya) -->
+    <section class="stats" aria-label="Sorotan perusahaan">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat"><strong>50+</strong><span>Lini produk</span></div>
+          <div class="stat"><strong>200+</strong><span>Klien industri</span></div>
+          <div class="stat"><strong>10+</strong><span>Sektor industri</span></div>
+          <div class="stat"><strong>24/7</strong><span>Dukungan teknis</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <span class="eyebrow">Tentang Kami</span>
+          <h2>Mitra terpercaya untuk biokimia industri</h2>
+          <p>PT Hifana Global Biochem adalah perusahaan Indonesia yang berfokus pada penyediaan produk biokimia untuk kebutuhan industri. Kami membantu pabrik, perkebunan, dan instalasi pengolahan limbah mengganti proses berbahan kimia keras dengan alternatif yang efektif dan ramah lingkungan.</p>
+          <p>Tidak hanya menyediakan produk, tim teknis kami turun langsung ke lokasi pelanggan untuk memilih formulasi yang tepat, menentukan dosis, dan memantau hasilnya, sehingga setiap solusi sesuai dengan proses produksi Anda.</p>
+        </div>
+        <div class="values">
+          <div class="value">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div><h3>Kualitas Konsisten</h3><p>Produk dipilih dan diuji sesuai spesifikasi di setiap batch.</p></div>
+          </div>
+          <div class="value">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+            <div><h3>Ramah Lingkungan</h3><p>Solusi berbasis hayati yang mudah terurai dan mengurangi dampak terhadap lingkungan.</p></div>
+          </div>
+          <div class="value">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><h3>Dukungan Teknis</h3><p>Tenaga ahli aplikasi yang siap membantu uji coba, penentuan dosis, dan penanganan masalah.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Produk Kami</span>
+          <h2>Solusi biokimia untuk setiap proses</h2>
+          <p class="lead">Rangkaian produk biologis dan berbasis hayati untuk kebutuhan produksi, pembersihan, dan pengolahan.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg></div>
+            <h3>Enzim Industri</h3>
+            <p>Enzim yang mempercepat reaksi serta menghemat energi, air, dan penggunaan bahan kimia.</p>
+            <ul class="tags"><li>Amilase</li><li>Selulase</li><li>Protease</li><li>Lipase</li></ul>
+          </article>
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg></div>
+            <h3>Kultur Mikroba</h3>
+            <p>Campuran bakteri pilihan untuk pengolahan air limbah secara biologis dan pengendalian bau.</p>
+            <ul class="tags"><li>Bioaugmentasi</li><li>Pengendali bau</li><li>Grease trap</li></ul>
+          </article>
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+            <h3>Pengolahan Air</h3>
+            <p>Koagulan, flokulan, dan bahan pengkondisi untuk air proses dan air limbah.</p>
+            <ul class="tags"><li>Koagulan</li><li>Flokulan</li><li>Antiscalant</li></ul>
+          </article>
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></div>
+            <h3>Produk Hayati Pertanian</h3>
+            <p>Pupuk hayati, biostimulan, dan pembenah tanah untuk perkebunan dan tanaman pangan.</p>
+            <ul class="tags"><li>Pupuk hayati</li><li>Biostimulan</li><li>Pengomposan</li></ul>
+          </article>
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l4 9a3 3 0 0 1-2.7 4H7.7A3 3 0 0 1 5 16l4-9z"/><path d="M7 14h10"/></svg></div>
+            <h3>Bahan Fermentasi</h3>
+            <p>Nutrisi, ragi, dan bahan bantu proses untuk fermentasi dan bioproses.</p>
+            <ul class="tags"><li>Nutrisi ragi</li><li>Antibusa</li><li>Bahan bantu proses</li></ul>
+          </article>
+          <article class="card">
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg></div>
+            <h3>Pembersih Berbasis Hayati</h3>
+            <p>Surfaktan dan pembersih enzim yang mudah terurai untuk kebersihan pabrik dan peralatan.</p>
+            <ul class="tags"><li>Pembersih CIP</li><li>Penghilang lemak</li><li>Surfaktan</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section id="industries">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Industri yang Kami Layani</span>
+          <h2>Andal untuk lingkungan industri yang menuntut</h2>
+          <p class="lead">Produk kami digunakan setiap hari di berbagai pabrik dan fasilitas pada sektor-sektor berikut.</p>
+        </div>
+        <div class="industry-grid">
+          <div class="industry"><span class="dot"></span>Tekstil &amp; Garmen</div>
+          <div class="industry"><span class="dot"></span>Pulp &amp; Kertas</div>
+          <div class="industry"><span class="dot"></span>Makanan &amp; Minuman</div>
+          <div class="industry"><span class="dot"></span>Pabrik Kelapa Sawit</div>
+          <div class="industry"><span class="dot"></span>Air &amp; Air Limbah</div>
+          <div class="industry"><span class="dot"></span>Pertanian</div>
+          <div class="industry"><span class="dot"></span>Pakan Ternak</div>
+          <div class="industry"><span class="dot"></span>Kulit &amp; Penyamakan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Hubungi Kami</span>
+          <h2>Temukan solusi yang tepat untuk proses Anda</h2>
+          <p class="lead">Ceritakan kebutuhan Anda, dan tim kami akan merekomendasikan produk, menyiapkan sampel, atau membuat penawaran harga.</p>
+          <div class="contact-actions">
+            <a href="https://wa.me/6285286748274?text=Halo%20PT%20Hifana%20Global%20Biochem%2C%20saya%20ingin%20bertanya%20tentang%20produk%20Anda." target="_blank" rel="noopener" class="btn btn-primary">Chat via WhatsApp</a>
+            <a href="tel:+6285286748274" class="btn btn-ghost">Telepon Kami</a>
+          </div>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><small>Alamat Kantor</small><a href="https://www.google.com/maps/search/?api=1&amp;query=PT.+HIFANA+GLOBAL+BIOCHEM,+Jl.+Vila+Nusa+Indah+2+No.03+Blk+CC1,+Bojong+Kulur,+Gunung+Putri,+Bogor+16969" target="_blank" rel="noopener">Jl. Vila Nusa Indah 2 No.03 Blk CC1, Bojong Kulur, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16969</a></div>
+          </li>
+          <li>
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><small>Telepon</small><a href="tel:+6285286748274">0852-8674-8274</a></div>
+          </li>
+          <li>
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+            <div><small>WhatsApp</small><a href="https://wa.me/6285286748274" target="_blank" rel="noopener">0852-8674-8274</a></div>
+          </li>
+          <li>
+            <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><small>Jam Operasional</small>Senin – Jumat, 08.00 – 17.00 WIB</div>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="map">
+          <iframe title="Lokasi PT Hifana Global Biochem di Google Maps" src="https://www.google.com/maps?q=PT.+HIFANA+GLOBAL+BIOCHEM,+Jl.+Vila+Nusa+Indah+2+No.03+Blk+CC1,+Bojong+Kulur,+Gunung+Putri,+Bogor+16969&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=PT.+HIFANA+GLOBAL+BIOCHEM,+Jl.+Vila+Nusa+Indah+2+No.03+Blk+CC1,+Bojong+Kulur,+Gunung+Putri,+Bogor+16969" target="_blank" rel="noopener" class="btn btn-ghost map-link">Buka di Google Maps</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; <span id="year">2026</span> PT Hifana Global Biochem. Hak cipta dilindungi.</span>
+      <span>Solusi Biokimia Industri · Indonesia</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var links = document.getElementById('nav-links');
+      var open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    }
+    document.querySelectorAll('#nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        document.getElementById('nav-links').classList.remove('open');
+        document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

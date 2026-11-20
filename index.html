@@ -83,6 +83,7 @@
 
     /* Hero */
     .hero {
+      position: relative;
       background:
         radial-gradient(circle at 85% 20%, rgba(31,157,108,.45), transparent 45%),
         radial-gradient(circle at 10% 90%, rgba(31,157,108,.25), transparent 40%),
@@ -90,7 +91,14 @@
       color: #fff;
       padding: 120px 0 110px;
       overflow: hidden;
+      isolation: isolate;
     }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none;
+      border: 1px solid rgba(126,226,181,.12);
+    }
+    .hero::before { width: 480px; height: 480px; right: -180px; top: -250px; animation: hero-orbit 24s linear infinite; }
+    .hero::after { width: 340px; height: 340px; left: -220px; bottom: -260px; animation: hero-orbit 30s linear infinite reverse; }
     .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
     .hero h1 { color: #fff; font-size: clamp(36px, 5.5vw, 58px); font-weight: 800; margin-bottom: 20px; }
     .hero h1 span { color: #7ee2b5; }
@@ -98,6 +106,19 @@
     .hero .eyebrow { color: #7ee2b5; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     .hero-art { justify-self: center; width: 100%; max-width: 360px; }
+    .hero-art .orbit { transform-origin: 150px 150px; animation: molecule-orbit 24s linear infinite; }
+    .hero-art .molecule-core { transform-box: fill-box; transform-origin: center; animation: molecule-pulse 3.2s ease-in-out infinite; }
+    .hero-art .molecule-node { transform-box: fill-box; transform-origin: center; animation: node-float 3.2s ease-in-out infinite; }
+    .hero-art .molecule-node:nth-of-type(2) { animation-delay: -.8s; }
+    .hero-art .molecule-node:nth-of-type(3) { animation-delay: -1.6s; }
+    .hero-art .molecule-node:nth-of-type(4) { animation-delay: -2.4s; }
+    @keyframes hero-orbit { to { transform: rotate(360deg); } }
+    @keyframes molecule-orbit { to { transform: rotate(360deg); } }
+    @keyframes molecule-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes node-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before, .hero::after, .hero-art .orbit, .hero-art .molecule-core, .hero-art .molecule-node { animation: none; }
+    }
 
     /* Stats */
     .stats { padding: 0; margin-top: -48px; position: relative; z-index: 2; }
@@ -249,17 +270,19 @@
           </div>
         </div>
         <svg class="hero-art" viewBox="0 0 300 300" fill="none" aria-hidden="true">
-          <circle cx="150" cy="150" r="130" stroke="rgba(126,226,181,.25)" stroke-width="2" stroke-dasharray="4 8"/>
-          <circle cx="150" cy="150" r="90" stroke="rgba(126,226,181,.35)" stroke-width="2"/>
+          <g class="orbit">
+            <circle cx="150" cy="150" r="130" stroke="rgba(126,226,181,.25)" stroke-width="2" stroke-dasharray="4 8"/>
+            <circle cx="150" cy="150" r="90" stroke="rgba(126,226,181,.35)" stroke-width="2"/>
+          </g>
           <g stroke="#7ee2b5" stroke-width="3">
             <line x1="150" y1="150" x2="150" y2="60"/>
             <line x1="150" y1="150" x2="228" y2="195"/>
             <line x1="150" y1="150" x2="72" y2="195"/>
           </g>
-          <circle cx="150" cy="150" r="22" fill="#1f9d6c" stroke="#7ee2b5" stroke-width="3"/>
-          <circle cx="150" cy="60" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
-          <circle cx="228" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
-          <circle cx="72" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle class="molecule-core" cx="150" cy="150" r="22" fill="#1f9d6c" stroke="#7ee2b5" stroke-width="3"/>
+          <circle class="molecule-node" cx="150" cy="60" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle class="molecule-node" cx="228" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
+          <circle class="molecule-node" cx="72" cy="195" r="16" fill="#12664a" stroke="#7ee2b5" stroke-width="3"/>
           <circle cx="240" cy="90" r="6" fill="#7ee2b5"/>
           <circle cx="58" cy="100" r="4" fill="#7ee2b5"/>
           <circle cx="200" cy="262" r="5" fill="#7ee2b5"/>
